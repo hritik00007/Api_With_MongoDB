@@ -3,10 +3,10 @@ const dbConn= require('./mongodb');
 
 const app = express();
 app.use(express.json());
-app.post('/sendBook/?page=500',async(req, res)=>{
+app.post('/sendBook/:id/?page=500',async(req, res)=>{
     console.log("New Book creating");
     let data=await dbConn();
-    let result=await data.insert(req.body);
+    let result=await data.insert(req.body.id);
     res.send(result);
 })
 
