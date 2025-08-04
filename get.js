@@ -5,7 +5,7 @@ const app = express();
 
 app.get('/getBooks',async (req,res)=>{
     let data=await dbConn();
-    data= await data.find().toArray();
+    data= await data.findAll().toArray();
     console.log(data);
     res.send(data);
 })
