@@ -13,12 +13,5 @@ app.delete('/deleteBook/:bookId',async (req,res)=>{
     res.send(result);
 })
 
-app.delete('/deleteBook/',async (req,res)=>{
-    console.log(req.params.bookName);
-    let data = await dbConnect();
-    console.log(data,"data");
-    let result=await data.deleteAll();
-    res.send(result);
-})
 
 app.listen(5000); 
