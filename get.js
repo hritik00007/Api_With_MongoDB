@@ -10,4 +10,11 @@ app.get('/getBooks',async (req,res)=>{
     res.send(data);
 })
 
+app.get('/getBook/:id',async (req,res)=>{
+    let data=await dbConn();
+    data= await data.findOne({bookId:req.bookId}).toArray();
+    console.log(data);
+    res.send(data);
+})
+
 app.listen(5000)
